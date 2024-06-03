@@ -1,10 +1,10 @@
-# [GroupID] your project title
+# [Group 4] Telco Customer Churn
 The goals of this project.
 
 ## Contributors
 |組員|系級|學號|工作分配|
 |-|-|-|-|
-|何大南|資科碩二|110753202|團隊中的吉祥物🦒，負責增進團隊氣氛| 
+|徐宏宇|資科三|110703056|幫忙撰寫程式| 
 |張小明|資科碩二|xxxxxxxxx|團隊的中流砥柱，一個人打十個|
 
 ## Quick start
