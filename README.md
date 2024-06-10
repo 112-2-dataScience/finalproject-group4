@@ -34,7 +34,7 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 ### code
 * Analysis steps
 * Which method or package do you use?
-  * Random Forest
+***Random Forest***
 ```
 library(tidyverse)
 library(data.table)
