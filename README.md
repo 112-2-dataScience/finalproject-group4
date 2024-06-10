@@ -35,14 +35,9 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 
 ### data
 * Input
-> Source
-[kaggle dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data)
-
-> Format
-.csv
-
-> Size
-977.5 kB
+Source: [kaggle dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data)
+, Format: .csv
+, Size: 977.5 kB
 
 ### code
 * Analysis steps
@@ -114,8 +109,7 @@ xg_grid <- expand.grid(
   min_child_weight = c(1, 3)         
 )
 ```
-* What is a null model for comparison?
-Random Guess
+* What is a null model for comparison?  Random Guess
 
 ### results
 * What is your performance?
@@ -177,8 +171,7 @@ Prediction Yes   No
 
        'Positive' Class : Yes
 ```
-* Is the improvement significant?
-Yes
+* Is the improvement significant?  Yes
 
 ## References
 * Packages you use
