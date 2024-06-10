@@ -8,7 +8,6 @@
 |-|-|-|-|
 |徐宏宇|資科三|110703056|幫忙撰寫程式| 
 |周幼臻|統計三|110304030|海報設計| 
-|張小明|資科碩二|xxxxxxxxx|團隊的中流砥柱，一個人打十個|
 
 ## Quick start
 Please use the commands below to reproduce our analysis.
