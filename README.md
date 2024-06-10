@@ -29,6 +29,7 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 * Poster
 <img src="docs/poster.png" alt="Load failed" width="420" height="594">
 * Any related document for the project, i.e.,
+
 > discussion log
 
 > software user guide
@@ -40,8 +41,7 @@ Source: [kaggle dataset](https://www.kaggle.com/datasets/blastchar/telco-custome
 , Size: 977.5 kB
 
 ### code
-* Analysis steps
-透過IQR法進行離群值剃除，發現無顯著離群值。
+* Analysis steps: 透過IQR法進行離群值剃除，發現無顯著離群值。
 * Which method or package do you use?
 > Random Forest
 ```R
