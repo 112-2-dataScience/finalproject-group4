@@ -11,9 +11,14 @@
 |張小明|資科碩二|xxxxxxxxx|團隊的中流砥柱，一個人打十個|
 
 ## Quick start
-Please use the command below to reproduce our analysis.
+Please use the commands below to reproduce our analysis.
+> Random Forest
 ```R
-Rscript code/[objective.R] --input data/WA_Fn-UseC_-Telco-Customer-Churn.csv --output results/performance.tsv
+Rscript code/RandomForest-t001.R --input data/WA_Fn-UseC_-Telco-Customer-Churn.csv --output results/performance.tsv
+```
+> XGBoost
+```R
+Rscript code/XGboost-t001.R --input data/WA_Fn-UseC_-Telco-Customer-Churn.csv --output results/performance.tsv
 ```
 
 ## Folder organization and its related description
@@ -21,21 +26,27 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 
 ### docs
 * Your presentation, 1122_DS-FP_groupID.ppt/pptx/pdf (i.e.,1122_DS-FP_group1.ppt), by **06.13**
+* Poster
+![poster.png](docs/poster.png)
 * Any related document for the project, i.e.,
-  * discussion log
-  * software user guide
+> discussion log
+> software user guide
 
 ### data
 * Input
-  * Source
-  * Format
-  * Size
+> Source
+[kaggle dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data)
+> Format
+.csv
+> Size
+977.5 kB
 
 ### code
 * Analysis steps
+透過IQR法進行離群值剃除，發現無顯著離群值。
 * Which method or package do you use?
 > Random Forest
-```
+```R
 library(tidyverse)
 library(data.table)
 library(randomForest)
@@ -47,7 +58,7 @@ library(dplyr)
 library(ranger)
 ```
 > XGBoost
-```
+```R
 library(tidyverse)
 library(data.table)
 library(randomForest)
@@ -59,12 +70,112 @@ library(dplyr)
 library(ranger)
 ```
 * How do you perform training and evaluation?
-  * Cross-validation, or extra separated data
+> Random Forest
+```R
+set.seed(111)
+new_data <- smotenc(data, "Churn", k =5,  over_ratio = 1)# Oversampling
+
+set.seed(111)
+step_train_index <- createDataPartition(new_data$Churn, p = 0.8, list = FALSE)
+step_train_data <- new_data[step_train_index,]
+step_test_data <- new_data[-step_train_index,]
+
+## 設置交叉驗證使用的超參數
+random_control <- trainControl(method = "cv", number = 5)
+grid <- expand.grid(
+  mtry = c(2, 3, 4, 5, 6),
+  splitrule = c("gini"),
+  min.node.size = c(1, 3, 5, 7, 9)
+)
+```
+> XGBoost
+```R
+set.seed(111)
+new_data <- smotenc(data, "Churn", k =5,  over_ratio = 1)# Oversampling
+
+set.seed(111)
+step_train_index <- createDataPartition(new_data$Churn, p = 0.8, list = FALSE)
+step_train_data <- new_data[step_train_index,]
+step_test_data <- new_data[-step_train_index,]
+
+## 設置交叉驗證使用的超參數
+set.seed(111)
+xg_control <- trainControl(method = "cv", number = 10)
+xg_grid <- expand.grid(
+  nrounds = c(100, 150),             
+  max_depth = c(6, 8),               
+  eta = c(0.1, 0.3),                 
+  gamma = c(0, 0.1),                 
+  colsample_bytree = c(0.8, 1.0),    
+  subsample = c(0.8, 1.0),           
+  min_child_weight = c(1, 3)         
+)
+```
 * What is a null model for comparison?
+Random Guess
 
 ### results
 * What is your performance?
+> Random Forest
+```
+Confusion Matrix and Statistics
+
+          Reference
+Prediction Yes   No
+       Yes  890  221
+       No   140  809
+
+               Accuracy : 0.8247
+                 95% CI : (0.8072, 0.8409)
+    No Information Rate : 0.5000
+    P-Value [Acc > NIR] : < 2.2e-16
+
+                  Kappa : 0.6491
+
+ Mcnemar's Test P-Value : 1.724e-14
+
+            Sensitivity : 0.8641
+            Specificity : 0.7854
+         Pos Pred Value : 0.8016
+         Neg Pred Value : 0.8526
+             Prevalence : 0.5000
+         Detection Rate : 0.4321
+   Detection Prevalence : 0.5391
+      Balanced Accuracy : 0.8247
+
+       'Positive' Class : Yes
+```
+> XGBoost
+```
+Confusion Matrix and Statistics
+
+          Reference
+Prediction Yes   No
+       Yes  862  181
+       No   168  849
+
+               Accuracy : 0.8306
+                 95% CI : (0.8134, 0.8464)
+    No Information Rate : 0.5000
+    P-Value [Acc > NIR] : < 2.2e-16
+
+                  Kappa : 0.6613
+
+ Mcnemar's Test P-Value : 0.0033
+
+            Sensitivity : 0.8367
+            Specificity : 0.8243
+         Pos Pred Value : 0.8269
+         Neg Pred Value : 0.8349
+             Prevalence : 0.5000
+         Detection Rate : 0.4184
+   Detection Prevalence : 0.5063
+      Balanced Accuracy : 0.8306
+
+       'Positive' Class : Yes
+```
 * Is the improvement significant?
+Yes
 
 ## References
 * Packages you use
