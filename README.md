@@ -1,13 +1,14 @@
 # [Group 4] Telco Customer Churn
 客戶流失一直是各產業日常要面對的商業問題之一。隨著大數據時代的來臨，如何透過內外部資料有效預測和針對性減少客戶流失已然成為各企業的關注的焦點。
+
 本次專案，我們希望能夠透過R語言建立一個有效的預測模型，幫助電信公司提前識別高風險的流失客戶，同時量化各內外部因素對於客戶流失的影響程度，進而使公司在策略發想上更具針對性。
 
 
 ## Contributors
 |組員|系級|學號|工作分配|
 |-|-|-|-|
-|徐宏宇|資科三|110703056|幫忙撰寫程式| 
-|周幼臻|統計三|110304030|海報設計| 
+|徐宏宇|資科三|110703056|寫README|
+|周幼臻|統計三|110304030|海報設計|
 |陳勁瑋|企管三|110305002|數據處理、建模程式撰寫、製作簡報|
 
 ## Quick start
@@ -100,13 +101,13 @@ step_test_data <- new_data[-step_train_index,]
 set.seed(111)
 xg_control <- trainControl(method = "cv", number = 10)
 xg_grid <- expand.grid(
-  nrounds = c(100, 150),             
-  max_depth = c(6, 8),               
-  eta = c(0.1, 0.3),                 
-  gamma = c(0, 0.1),                 
-  colsample_bytree = c(0.8, 1.0),    
-  subsample = c(0.8, 1.0),           
-  min_child_weight = c(1, 3)         
+  nrounds = c(100, 150),
+  max_depth = c(6, 8),
+  eta = c(0.1, 0.3),
+  gamma = c(0, 0.1),
+  colsample_bytree = c(0.8, 1.0),
+  subsample = c(0.8, 1.0),
+  min_child_weight = c(1, 3)
 )
 ```
 * What is a null model for comparison?  Random Guess
