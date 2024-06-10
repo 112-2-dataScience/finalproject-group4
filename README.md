@@ -8,6 +8,7 @@
 |-|-|-|-|
 |徐宏宇|資科三|110703056|幫忙撰寫程式| 
 |周幼臻|統計三|110304030|海報設計| 
+|陳勁瑋|企管三|110305002|數據處理、建模程式撰寫、製作簡報|
 
 ## Quick start
 Please use the commands below to reproduce our analysis.
