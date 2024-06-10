@@ -29,15 +29,18 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 * Poster
 <img src="docs/poster.png" alt="Load failed" width="420" height="594">
 * Any related document for the project, i.e.,
-  * discussion log
-  * software user guide
+> discussion log
+
+> software user guide
 
 ### data
 * Input
 > Source
 [kaggle dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data)
+
 > Format
 .csv
+
 > Size
 977.5 kB
 
