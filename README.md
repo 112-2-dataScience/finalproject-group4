@@ -112,7 +112,7 @@ xg_grid <- expand.grid(
   min_child_weight = c(1, 3)
 )
 ```
-* What is a null model for comparison?  Random Guess
+* What is a null model for comparison? logistic regression on full model
 
 ### results
 * What is your performance?
