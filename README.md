@@ -28,6 +28,8 @@ idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Proje
 
 ### docs
 * Your presentation, 1122_DS-FP_groupID.ppt/pptx/pdf (i.e.,1122_DS-FP_group1.ppt), by **06.13**
+* Your presentation
+* [presentation](docs/DS.pdf)
 * Poster
 * https://docs.google.com/presentation/d/12HPJ3zJFaOC9mVd2CgYqTUW6DSN1t043BEnDZVsB6YA/edit?usp=sharing
 <img src="docs/poster.png" alt="Load failed" width="420" height="594">
